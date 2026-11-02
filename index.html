@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#f7f8fc" />
+  <meta name="description" content="Dynamics Lab: explore sensor and system behavior with interactive simulations." />
+  <title>Dynamics Lab — Interactive Systems Toolkit</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="js/module1.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="shell header-inner">
+      <button type="button" class="brand" data-open="home" aria-label="Dynamics Lab home">
+        <span class="brand-icon" aria-hidden="true">
+          <svg viewBox="0 0 36 36" width="26" height="26" fill="none"><path d="M4 24h6l5-15 7 20 5-12h5" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" /></svg>
+        </span>
+        <span>Dynamics<span class="brand-soft">Lab</span></span>
+      </button>
+      <nav class="main-nav" role="tablist" aria-label="Toolkit pages">
+        <button type="button" id="tab-home" class="nav-tab active" role="tab" aria-controls="page-home" aria-selected="true" data-page="home">Home</button>
+        <button type="button" id="tab-module1" class="nav-tab" role="tab" aria-controls="page-module1" aria-selected="false" data-page="module1"><span class="nav-number">01</span> Module 1</button>
+        <button type="button" id="tab-module2" class="nav-tab" role="tab" aria-controls="page-module2" aria-selected="false" data-page="module2"><span class="nav-number">02</span> Module 2</button>
+        <button type="button" id="tab-module3" class="nav-tab" role="tab" aria-controls="page-module3" aria-selected="false" data-page="module3"><span class="nav-number">03</span> Module 3</button>
+        <button type="button" id="tab-module4" class="nav-tab" role="tab" aria-controls="page-module4" aria-selected="false" data-page="module4"><span class="nav-number">04</span> Module 4</button>
+      </nav>
+      <div class="header-state"><span class="header-dot" aria-hidden="true"></span> Interactive toolkit</div>
+    </div>
+  </header>
+
+  <main class="shell app-main">
+    <!-- HOME -->
+    <section id="page-home" class="page-view" role="tabpanel" aria-labelledby="tab-home">
+      <div class="home-hero">
+        <div class="home-hero-copy">
+          <p class="hero-overline"><span class="hero-overline-dot"></span> LEARN BY EXPLORING</p>
+          <h1>Watch systems<br /><span>come to life.</span></h1>
+          <p class="home-description">Explore how sensors respond, experiment with real parameters, and turn equations into something you can actually see.</p>
+          <div class="home-actions">
+            <button type="button" class="home-primary" data-open="module1">Explore Module 01 <span aria-hidden="true">↗</span></button>
+            <span class="home-live-note"><span class="live-indicator"></span> First module is live</span>
+          </div>
+        </div>
+        <div class="hero-art" aria-label="Decorative curves representing system responses">
+          <div class="art-top"><span class="art-tag">LIVE SIMULATION</span><span class="art-triple-dots">● ● ●</span></div>
+          <svg class="hero-graph" viewBox="0 0 500 290" fill="none" role="img" aria-label="Two sensor response curves with different speeds">
+            <defs><linearGradient id="hero-gradient" x1="0" x2="1" y1="1" y2="0"><stop stop-color="#c5bdff"/><stop offset="1" stop-color="#6d62e8"/></linearGradient><linearGradient id="hero-fill" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#8a7ff8" stop-opacity=".18"/><stop offset="1" stop-color="#8a7ff8" stop-opacity="0"/></linearGradient></defs>
+            <path d="M44 32V246H465" stroke="#cdd3e4" stroke-width="1.5"/>
+            <path d="M44 205H465M44 164H465M44 123H465M44 82H465M114 32V246M184 32V246M254 32V246M324 32V246M394 32V246" stroke="#e8eaf5" stroke-width="1" stroke-dasharray="4 6"/>
+            <path d="M44 246C75 181 106 109 156 79C215 45 320 43 465 43V246H44Z" fill="url(#hero-fill)"/>
+            <path d="M44 246C75 181 106 109 156 79C215 45 320 43 465 43" stroke="url(#hero-gradient)" stroke-width="5" stroke-linecap="round"/>
+            <path d="M44 246C113 237 155 213 215 169C277 123 352 91 465 71" stroke="#2bbcb6" stroke-width="4" stroke-linecap="round" stroke-dasharray="9 9"/>
+            <circle cx="156" cy="79" r="8" fill="#fff" stroke="#796bea" stroke-width="4"/>
+            <rect x="173" y="83" width="116" height="31" rx="8" fill="white" stroke="#e7e5fc"/><text x="186" y="104" fill="#6659d8" font-size="14" font-weight="700">63.2% at τ</text>
+          </svg>
+          <div class="art-legend"><span><i class="line-key output"></i> Fast response</span><span><i class="line-key second"></i> Slow response</span></div>
+        </div>
+      </div>
+
+      <div class="home-list-heading"><div><p class="section-kicker">THE TOOLKIT</p><h2>Choose a module</h2><p>Each module focuses on a different part of system dynamics.</p></div><span class="module-count">04 MODULES</span></div>
+      <div class="home-module-grid">
+        <button type="button" class="module-tile ready" data-open="module1">
+          <span class="tile-top"><span class="tile-number">01 / TIME DOMAIN</span><span class="tile-badge live">● LIVE</span></span>
+          <span class="tile-icon lavender" aria-hidden="true">∿</span>
+          <strong>First-order<br />time response</strong>
+          <span class="tile-desc">Explore step and ramp signals, time constant, and tracking error.</span>
+          <span class="tile-link">Open module <span aria-hidden="true">↗</span></span>
+        </button>
+        <button type="button" class="module-tile" data-open="module2">
+          <span class="tile-top"><span class="tile-number">02 / FREQUENCY DOMAIN</span><span class="tile-badge upcoming">SOON</span></span>
+          <span class="tile-icon teal" aria-hidden="true">〰</span>
+          <strong>First-order<br />frequency response</strong>
+          <span class="tile-desc">Discover amplitude ratio, phase lag, and frequency behavior.</span>
+          <span class="tile-link">Preview module <span aria-hidden="true">↗</span></span>
+        </button>
+        <button type="button" class="module-tile" data-open="module3">
+          <span class="tile-top"><span class="tile-number">03 / SECOND ORDER</span><span class="tile-badge upcoming">SOON</span></span>
+          <span class="tile-icon peach" aria-hidden="true">⌁</span>
+          <strong>Second-order<br />response</strong>
+          <span class="tile-desc">Visualize damping, overshoot, settling time, and system poles.</span>
+          <span class="tile-link">Preview module <span aria-hidden="true">↗</span></span>
+        </button>
+        <button type="button" class="module-tile" data-open="module4">
+          <span class="tile-top"><span class="tile-number">04 / INTERACTIVE CHALLENGE</span><span class="tile-badge upcoming">SOON</span></span>
+          <span class="tile-icon yellow" aria-hidden="true">?</span>
+          <strong>Guess the<br />sensor</strong>
+          <span class="tile-desc">Read a hidden sensor’s curve and challenge your intuition.</span>
+          <span class="tile-link">Preview module <span aria-hidden="true">↗</span></span>
+        </button>
+      </div>
+    </section>
+
+    <!-- MODULE 1 -->
+    <section id="page-module1" class="page-view" role="tabpanel" aria-labelledby="tab-module1" hidden>
+      <div class="module-hero">
+        <button type="button" class="breadcrumb-link" data-open="home"><span aria-hidden="true">←</span> Back to home</button>
+        <div class="module-title-row">
+          <div><p class="section-kicker">MODULE 01 <span class="kicker-divider">/</span> TIME DOMAIN</p><h1>First-order time response<span class="title-period">.</span></h1><p>Adjust the parameters and see how a sensor reacts in real time.</p></div>
+          <span class="formula-badge">τ dy/dt + y = Kx</span>
+        </div>
+      </div>
+
+      <div class="workspace-grid">
+        <aside class="controls-stack" aria-label="Simulation controls">
+          <section class="panel controls-panel">
+            <div class="panel-heading"><div class="panel-heading-icon purple" aria-hidden="true">⚙</div><div><h3>Simulation controls</h3><p>Tune your sensor</p></div></div>
+            <div class="control-block"><div class="control-top"><label for="tau">Time constant <span class="unit">τ</span></label><output id="tau-value" for="tau">1.5 s</output></div><input id="tau" name="tau" type="range" min="0.2" max="6" value="1.5" step="0.1" aria-describedby="tau-help" /><div class="range-labels"><span>0.2 s</span><span>6.0 s</span></div><p class="help-text" id="tau-help">Higher τ means a slower response.</p></div>
+            <div class="control-block"><div class="control-top"><label for="gain">System gain <span class="unit">K</span></label><output id="gain-value" for="gain">1.0</output></div><input id="gain" name="gain" type="range" min="0.5" max="2.5" value="1" step="0.1" /><div class="range-labels"><span>0.5</span><span>2.5</span></div><p class="help-text">Higher K gives a larger output.</p></div>
+            <div class="control-block input-block"><span class="control-top"><span class="control-label">Input signal</span></span><div class="segmented" role="group" aria-label="Choose input signal"><button type="button" class="segment active" data-input="step" aria-pressed="true">Step</button><button type="button" class="segment" data-input="ramp" aria-pressed="false">Ramp</button></div><p class="help-text">Unit step or unit-slope ramp (A = 1).</p></div>
+            <button id="reset-button" class="reset-button" type="button"><span aria-hidden="true">↺</span> Reset parameters</button>
+          </section>
+          <section class="panel prediction-panel" aria-labelledby="prediction-title">
+            <div class="prediction-heading"><span class="sparkle" aria-hidden="true">✦</span><h3 id="prediction-title">Predict &amp; check</h3><span class="mini-label">QUICK CHALLENGE</span></div>
+            <p class="prediction-question">What happens to the <strong>response speed</strong> if we increase the time constant <strong>τ</strong>?</p>
+            <div class="prediction-choices" role="group" aria-label="Select your prediction"><label class="choice"><input type="radio" name="prediction" value="slower" /><span>It gets slower</span></label><label class="choice"><input type="radio" name="prediction" value="faster" /><span>It gets faster</span></label></div>
+            <button id="lock-prediction" type="button" class="primary-button">Check my prediction <span aria-hidden="true">→</span></button>
+            <p class="prediction-instruction">Choose an answer and click the button. We'll increase τ automatically and show the result.</p>
+            <div id="prediction-result" class="prediction-result" hidden><p id="prediction-feedback" class="prediction-feedback" role="status" aria-live="polite"></p><div id="prediction-comparison" class="prediction-comparison"><span id="prediction-before"></span><span class="comparison-arrow" aria-hidden="true">→</span><span id="prediction-after"></span></div></div>
+            <p id="prediction-hint" class="prediction-hint" role="status" aria-live="polite"></p>
+          </section>
+        </aside>
+        <div class="results-stack">
+          <section class="panel chart-panel" aria-labelledby="response-title"><div class="chart-heading"><div><p class="chart-eyebrow">LIVE VISUALIZATION</p><h3 id="response-title">Step response</h3></div><span class="live-chip"><span class="live-indicator" aria-hidden="true"></span> Live</span></div><div class="chart-legend" aria-hidden="true"><span><i class="line-key output"></i> Sensor output</span><span><i class="line-key target"></i> Ideal output (K × input)</span></div><div class="chart-box"><svg id="response-chart" viewBox="0 0 900 390" role="img" aria-label="First-order response chart with output and ideal signal" preserveAspectRatio="xMidYMid meet"></svg></div><p id="chart-explanation" class="chart-footnote">At t = τ, the step response reaches approximately 63.2% of its final value.</p></section>
+          <div class="metrics-grid" aria-live="polite"><article class="metric-card"><span class="metric-label" id="metric-one-label">Output at τ</span><div class="metric-value" id="metric-one">63.2<span>%</span></div><p id="metric-one-caption">of final output</p></article><article class="metric-card"><span class="metric-label" id="metric-two-label">Output at 3τ</span><div class="metric-value" id="metric-two">95.0<span>%</span></div><p id="metric-two-caption">of final output</p></article><article class="metric-card"><span class="metric-label" id="metric-three-label">Time constant</span><div class="metric-value" id="metric-three">1.5<span>s</span></div><p id="metric-three-caption">time to reach 63.2%</p></article></div>
+        </div>
+      </div>
+      <div class="lower-grid">
+        <section class="panel log-panel" aria-labelledby="log-title"><div class="chart-heading"><div><p class="chart-eyebrow">UNDERSTAND THE ERROR</p><h3 id="log-title">Error-fraction plot</h3></div><span class="small-tag">Logarithmic Y-axis</span></div><p class="subtle-intro">For a step input, the remaining normalized error is e<sup>−t/τ</sup>. Its logarithm is a straight line.</p><div class="chart-box chart-box-small"><svg id="error-chart" viewBox="0 0 900 310" role="img" aria-label="Error fraction on logarithmic axis"></svg></div><div class="slope-strip"><span>ln(error fraction) slope</span><strong id="slope-value">−0.667 s⁻¹</strong></div></section>
+        <section class="panel validation-panel" aria-labelledby="validation-title"><div class="chart-heading"><div><p class="chart-eyebrow">ENGINEERING CHECK</p><h3 id="validation-title">Validation tests</h3></div><span id="validation-count" class="validation-summary">2 / 2 passed</span></div><p class="subtle-intro">Calculated values are checked against first-order step targets.</p><div class="table-scroll"><table><thead><tr><th>Test</th><th>Expected</th><th>Calculated</th><th>Status</th></tr></thead><tbody><tr><td>y(τ) / KA</td><td>63.2%</td><td id="validation-tau">63.21%</td><td><span class="pass-chip" id="validation-tau-status">PASS</span></td></tr><tr><td>y(3τ) / KA</td><td>95.0%</td><td id="validation-three-tau">95.02%</td><td><span class="pass-chip" id="validation-three-tau-status">PASS</span></td></tr></tbody></table></div><div class="note"><span class="note-icon" aria-hidden="true">ⓘ</span><span>For a ramp input, the steady-state tracking error approaches <strong>KAτ</strong>, corresponding to a time lag of τ.</span></div></section>
+      </div>
+    </section>
+
+    <!-- COMING SOON TABS -->
+    <section id="page-module2" class="page-view" role="tabpanel" aria-labelledby="tab-module2" hidden><div class="soon-screen"><span class="soon-deco" aria-hidden="true">〰</span><p class="soon-kicker">MODULE 02 · FREQUENCY RESPONSE</p><h2>SOON<span>.</span></h2><p>Something interesting is on the way.</p><button type="button" class="return-button" data-open="home">← Back to home</button></div></section>
+    <section id="page-module3" class="page-view" role="tabpanel" aria-labelledby="tab-module3" hidden><div class="soon-screen"><span class="soon-deco" aria-hidden="true">⌁</span><p class="soon-kicker">MODULE 03 · SECOND-ORDER RESPONSE</p><h2>SOON<span>.</span></h2><p>Something interesting is on the way.</p><button type="button" class="return-button" data-open="home">← Back to home</button></div></section>
+    <section id="page-module4" class="page-view" role="tabpanel" aria-labelledby="tab-module4" hidden><div class="soon-screen"><span class="soon-deco" aria-hidden="true">?</span><p class="soon-kicker">MODULE 04 · GUESS THE SENSOR</p><h2>SOON<span>.</span></h2><p>Something interesting is on the way.</p><button type="button" class="return-button" data-open="home">← Back to home</button></div></section>
+  </main>
+  <footer class="site-footer">Dynamics Lab <span>•</span> Interactive systems, made simple.</footer>
+</body>
+</html>
