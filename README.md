@@ -34,3 +34,27 @@ Tasks:
 - Show overshoot, settling time, and other relevant response characteristics.
 - Implement the Predict and Check interaction.
 - Add validation tests for the mathematical calculations and system behavior.
+
+
+
+
+
+
+
+
+Malek Zeghari  1230358
+Implement the First-Order Frequency Response module.
+
+Tasks:
+- Implement first-order frequency response calculations.
+- Add interactive sliders for time constant (τ) and angular frequency (ω).
+- Display input and output sine wave plots.
+- Visualize amplitude attenuation and phase lag.
+- Implement the Bode magnitude plot with cutoff frequency.
+- Calculate and display amplitude ratio, phase lag, and dynamic error.
+- Show the effects of changing frequency and time constant.
+- Implement the Predict and Check interaction.
+- Add validation tests for the mathematical calculations.
+
+
+
