@@ -8,6 +8,7 @@
   <title>Dynamics Lab — Interactive Systems Toolkit</title>
   <link rel="stylesheet" href="style.css" />
   <script src="module1.js" defer></script>
+  <script src="module2.js" defer></script>
   <script src="module3.js" defer></script>
 </head>
 <body>
@@ -69,11 +70,11 @@
           <span class="tile-link">Open module <span aria-hidden="true">↗</span></span>
         </button>
         <button type="button" class="module-tile" data-open="module2">
-          <span class="tile-top"><span class="tile-number">02 / FREQUENCY DOMAIN</span><span class="tile-badge upcoming">SOON</span></span>
+          <span class="tile-top"><span class="tile-number">02 / FREQUENCY DOMAIN</span><span class="tile-badge upcoming">● LIVE</span></span>
           <span class="tile-icon teal" aria-hidden="true">〰</span>
           <strong>First-order<br />frequency response</strong>
           <span class="tile-desc">Discover amplitude ratio, phase lag, and frequency behavior.</span>
-          <span class="tile-link">Preview module <span aria-hidden="true">↗</span></span>
+          <span class="tile-link">Open module <span aria-hidden="true">↗</span></span>
         </button>
         <button type="button" class="module-tile" data-open="module3">
           <span class="tile-top"><span class="tile-number">03 / SECOND ORDER</span><span class="tile-badge upcoming">SOON</span></span>
@@ -133,7 +134,105 @@
     </section>
 
     <!-- COMING SOON TABS -->
-    <section id="page-module2" class="page-view" role="tabpanel" aria-labelledby="tab-module2" hidden><div class="soon-screen"><span class="soon-deco" aria-hidden="true">〰</span><p class="soon-kicker">MODULE 02 · FREQUENCY RESPONSE</p><h2>SOON<span>.</span></h2><p>Something interesting is on the way.</p><button type="button" class="return-button" data-open="home">← Back to home</button></div></section>
+ <section id="page-module2" class="page-view" role="tabpanel" aria-labelledby="tab-module2" hidden>
+      <div class="module-hero">
+        <button type="button" class="breadcrumb-link" data-open="home">← Back to home</button>
+        <div class="module-title-row">
+          <div>
+            <p class="section-kicker">MODULE 02 <span class="kicker-divider">/</span> FREQUENCY RESPONSE</p>
+            <h1>First-Order Frequency Response<span class="title-period">.</span></h1>
+            <p>Explore how frequency affects sensor output.</p>
+          </div>
+          <span class="formula-badge">M = 1 / √(1 + (ωτ)²)</span>
+        </div>
+      </div>
+
+      <section class="panel controls-panel">
+        <div class="panel-heading">
+          <div class="panel-heading-icon purple" aria-hidden="true">⚙</div>
+          <div><h3>Simulation Controls</h3><p>Tune your sensor parameters</p></div>
+        </div>
+        <div class="control-block">
+          <div class="control-top">
+            <label for="m2-tau">Time Constant (τ)</label>
+            <output id="m2-tau-value" for="m2-tau">0.2 s</output>
+          </div>
+          <input type="range" id="m2-tau" min="0.1" max="3" step="0.1" value="0.2">
+          <div class="range-labels"><span>0.1 s</span><span>3.0 s</span></div>
+          <p class="help-text">Higher τ means stronger attenuation at a given frequency.</p>
+        </div>
+        <div class="control-block">
+          <div class="control-top">
+            <label for="m2-frequency">Angular Frequency (ω)</label>
+            <output id="m2-frequency-value" for="m2-frequency">2.0 rad/s</output>
+          </div>
+          <input type="range" id="m2-frequency" min="0.1" max="30" step="0.1" value="2">
+          <div class="range-labels"><span>0.1 rad/s</span><span>30 rad/s</span></div>
+          <p class="help-text">Higher frequency reduces the output amplitude.</p>
+        </div>
+      </section>
+
+      <section class="panel chart-panel">
+        <h3>Input and Output Sine Waves</h3>
+        <div class="chart-box">
+          <svg id="m2-sine-chart" viewBox="0 0 900 390" style="width:100%;min-height:250px" role="img" aria-label="Input and output sine waves"></svg>
+        </div>
+      </section>
+
+      <section class="panel chart-panel">
+        <h3>Bode Magnitude Plot</h3>
+        <p>Frequency response with cutoff at <strong id="m2-cutoff">5.00 rad/s</strong></p>
+        <div class="chart-box">
+          <svg id="m2-bode-chart" viewBox="0 0 900 390" style="width:100%;min-height:250px" role="img" aria-label="Bode magnitude plot"></svg>
+        </div>
+      </section>
+
+      <div class="metrics-grid" aria-live="polite">
+        <article class="metric-card">
+          <span class="metric-label">Amplitude Ratio</span>
+          <div class="metric-value" id="m2-amplitude">--</div>
+        </article>
+        <article class="metric-card">
+          <span class="metric-label">Phase Lag</span>
+          <div class="metric-value" id="m2-phase">--</div>
+        </article>
+        <article class="metric-card">
+          <span class="metric-label">Dynamic Error</span>
+          <div class="metric-value" id="m2-error">--</div>
+        </article>
+      </div>
+
+      <section class="panel prediction-panel">
+        <div class="prediction-heading">
+          <span class="sparkle" aria-hidden="true">✦</span>
+          <h3>Predict &amp; Check</h3>
+          <span class="mini-label">QUICK CHALLENGE</span>
+        </div>
+        <p class="prediction-question">What happens to the output amplitude when the input frequency increases?</p>
+        <div class="prediction-choices" role="group" aria-label="Module 2 prediction">
+          <label class="choice"><input type="radio" name="m2-prediction" value="increase"><span>Amplitude increases</span></label>
+          <label class="choice"><input type="radio" name="m2-prediction" value="decrease"><span>Amplitude decreases</span></label>
+        </div>
+        <button type="button" id="m2-check-prediction" class="primary-button">Check my prediction →</button>
+        <p id="m2-prediction-result" class="prediction-feedback" role="status" aria-live="polite" style="margin-top:16px"></p>
+      </section>
+
+      <section class="panel validation-panel">
+        <h3>Validation Tests</h3>
+        <p>Checking the frequency response against reference values.</p>
+        <div class="table-scroll">
+          <table>
+            <thead><tr><th>Test</th><th>Expected</th><th>Calculated</th><th>Status</th></tr></thead>
+            <tbody>
+              <tr><td>Amplitude ratio (τ=0.2, ω=2)</td><td>0.93</td><td id="m2-test-amplitude">--</td><td id="m2-status-amplitude">--</td></tr>
+              <tr><td>Phase lag (τ=0.2, ω=2)</td><td>21.8°</td><td id="m2-test-phase">--</td><td id="m2-status-phase">--</td></tr>
+              <tr><td>Max τ at 100 Hz (5% error)</td><td>0.52 ms</td><td id="m2-test-tau">--</td><td id="m2-status-tau">--</td></tr>
+              <tr><td>Phase lag at 50 Hz</td><td>9.3°</td><td id="m2-test-phase50">--</td><td id="m2-status-phase50">--</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </section>
     <section id="page-module3" class="page-view" role="tabpanel" aria-labelledby="tab-module3" hidden><div class="soon-screen"><span class="soon-deco" aria-hidden="true">⌁</span><p class="soon-kicker">MODULE 03 · SECOND-ORDER RESPONSE</p><h2>SOON<span>.</span></h2><p>Something interesting is on the way.</p><button type="button" class="return-button" data-open="home">← Back to home</button></div></section>
     <section id="page-module4" class="page-view" role="tabpanel" aria-labelledby="tab-module4" hidden><div class="soon-screen"><span class="soon-deco" aria-hidden="true">?</span><p class="soon-kicker">MODULE 04 · GUESS THE SENSOR</p><h2>SOON<span>.</span></h2><p>Something interesting is on the way.</p><button type="button" class="return-button" data-open="home">← Back to home</button></div></section>
   </main>
