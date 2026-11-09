@@ -1,4 +1,6 @@
 # ENCS4380-Dynamics-T11
+
+Maen Khalil 1230811
 Implement the First-Order Time Response module.
 
 Tasks:
@@ -10,3 +12,25 @@ Tasks:
 - Implement the logarithmic error plot.
 - Add Predict and Check interaction.
 - Implement validation tests.
+
+
+
+
+
+
+
+
+
+Yamen Daghlas 1230020
+Implement the Second-Order Time Response module (Mass–Spring–Damper System).
+
+Tasks:
+- Implement second-order system response calculations.
+- Support underdamped, critically damped, and overdamped responses.
+- Add interactive sliders for system parameters.
+- Display the system response plots.
+- Visualize the effects of changing mass, damping coefficient, and spring constant.
+- Calculate and display natural frequency and damping ratio.
+- Show overshoot, settling time, and other relevant response characteristics.
+- Implement the Predict and Check interaction.
+- Add validation tests for the mathematical calculations and system behavior.
