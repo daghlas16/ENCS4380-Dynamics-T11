@@ -239,3 +239,10 @@ footer span { padding: 0 6px; }
 @media (max-width: 1150px) { .header-state { display: none; } .header-inner { justify-content: space-between; } .home-module-grid { grid-template-columns: repeat(2, minmax(0,1fr)); } .module-tile { min-height: 260px; } }
 @media (max-width: 820px) { .header-inner { flex-direction: column; align-items: stretch; gap: 0; padding-top: 13px; } .brand { align-self: flex-start; } .main-nav { overflow-x: auto; justify-content: flex-start; scrollbar-width: none; margin-top: 10px; padding-bottom: 10px; } .main-nav::-webkit-scrollbar { display: none; } .nav-tab { flex: 0 0 auto; } .home-hero { grid-template-columns: 1fr; padding: 47px 0; gap: 35px; } .hero-art { max-width: 600px; width: 100%; transform: none; } .home-hero h1 { font-size: clamp(43px, 8vw, 65px); } .module-title-row { align-items: flex-start; flex-direction: column; } }
 @media (max-width: 520px) { .shell { padding-left: 16px; padding-right: 16px; } .home-hero { padding: 39px 0 51px; } .home-hero h1 { letter-spacing: -2.5px; } .home-description { font-size: 13px; } .home-module-grid { grid-template-columns: 1fr; gap: 12px; } .module-tile { min-height: 205px; padding: 18px; } .tile-icon { margin: 13px 0 10px; } .home-list-heading h2 { font-size: 26px; } .module-title-row h1 { font-size: 30px; } .formula-badge { white-space: normal; } .soon-screen { min-height: 62vh; margin: 18px 0 35px; } .soon-screen h2 { font-size: 76px; } .soon-kicker { letter-spacing: 1px; font-size: 9px; } }
+
+/* -------- Module 2 layout fix --------
+   Module 2 panels are direct children of the page section (no grid wrapper like
+   Module 1), so give them vertical spacing. The first panel is skipped because
+   .module-hero already provides space above it. */
+#page-module2 > .panel ~ .panel,
+#page-module2 > .panel ~ .metrics-grid { margin-top: 18px; }
