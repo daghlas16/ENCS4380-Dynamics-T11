@@ -246,3 +246,8 @@ footer span { padding: 0 6px; }
    .module-hero already provides space above it. */
 #page-module2 > .panel ~ .panel,
 #page-module2 > .panel ~ .metrics-grid { margin-top: 18px; }
+/* Module 4 — Guess the sensor */
+#page-module4 .primary-button:disabled { background: #c9c5f2; cursor: not-allowed; }
+#page-module4 input[type="range"]:disabled { opacity: .55; cursor: not-allowed; }
+#page-module4 .reset-button { width: 100%; }
+#page-module4 .prediction-instruction { color: #6e639e; font-size: 12px; }

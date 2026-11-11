@@ -10,6 +10,7 @@
   <script src="module1.js" defer></script>
   <script src="module2.js" defer></script>
   <script src="module3.js" defer></script>
+  <script src="module4.js" defer></script>
 </head>
 <body>
   <header class="site-header">
@@ -41,7 +42,7 @@
           <p class="home-description">Explore how sensors respond, experiment with real parameters, and turn equations into something you can actually see.</p>
           <div class="home-actions">
             <button type="button" class="home-primary" data-open="module1">Explore Module 01 <span aria-hidden="true">↗</span></button>
-            <span class="home-live-note"><span class="live-indicator"></span> Modules 1 and 2 are live</span>
+            <span class="home-live-note"><span class="live-indicator"></span> Modules 1, 2 and 4 are live</span>
           </div>
         </div>
         <div class="hero-art" aria-label="Decorative curves representing system responses">
@@ -83,12 +84,12 @@
           <span class="tile-desc">Visualize damping, overshoot, settling time, and system poles.</span>
           <span class="tile-link">Preview module <span aria-hidden="true">↗</span></span>
         </button>
-        <button type="button" class="module-tile" data-open="module4">
-          <span class="tile-top"><span class="tile-number">04 / INTERACTIVE CHALLENGE</span><span class="tile-badge upcoming">SOON</span></span>
+        <button type="button" class="module-tile ready" data-open="module4">
+          <span class="tile-top"><span class="tile-number">04 / INTERACTIVE CHALLENGE</span><span class="tile-badge live">● LIVE</span></span>
           <span class="tile-icon yellow" aria-hidden="true">?</span>
           <strong>Guess the<br />sensor</strong>
           <span class="tile-desc">Read a hidden sensor’s curve and challenge your intuition.</span>
-          <span class="tile-link">Preview module <span aria-hidden="true">↗</span></span>
+          <span class="tile-link">Open module <span aria-hidden="true">↗</span></span>
         </button>
       </div>
     </section>
@@ -236,7 +237,78 @@
 
     <!-- COMING SOON TABS -->
     <section id="page-module3" class="page-view" role="tabpanel" aria-labelledby="tab-module3" hidden><div class="soon-screen"><span class="soon-deco" aria-hidden="true">⌁</span><p class="soon-kicker">MODULE 03 · SECOND-ORDER RESPONSE</p><h2>SOON<span>.</span></h2><p>Something interesting is on the way.</p><button type="button" class="return-button" data-open="home">← Back to home</button></div></section>
-    <section id="page-module4" class="page-view" role="tabpanel" aria-labelledby="tab-module4" hidden><div class="soon-screen"><span class="soon-deco" aria-hidden="true">?</span><p class="soon-kicker">MODULE 04 · GUESS THE SENSOR</p><h2>SOON<span>.</span></h2><p>Something interesting is on the way.</p><button type="button" class="return-button" data-open="home">← Back to home</button></div></section>
+    <section id="page-module4" class="page-view" role="tabpanel" aria-labelledby="tab-module4" hidden>
+      <div class="module-hero">
+        <button type="button" class="breadcrumb-link" data-open="home"><span aria-hidden="true">←</span> Back to home</button>
+        <div class="module-title-row">
+          <div><p class="section-kicker">MODULE 04 <span class="kicker-divider">/</span> INTERACTIVE CHALLENGE</p><h1>Guess the sensor<span class="title-period">.</span></h1><p>Read the curve, work backwards, and estimate the hidden parameters.</p></div>
+          <span class="formula-badge">Estimate K · τ · ζ · ωn</span>
+        </div>
+      </div>
+
+      <div class="workspace-grid">
+        <aside class="controls-stack" aria-label="Challenge controls">
+          <section class="panel controls-panel">
+            <div class="panel-heading"><div class="panel-heading-icon purple" aria-hidden="true">?</div><div><h3 id="m4-kind">Hidden sensor</h3><p id="m4-brief">Estimate the parameters.</p></div></div>
+        <div class="control-block" id="m4-gain-block">
+          <div class="control-top"><label for="m4-gain">System gain <span class="unit">K</span></label><output id="m4-gain-value" for="m4-gain">1.5</output></div>
+          <input type="range" id="m4-gain" min="0.5" max="2.5" step="0.05" value="1.5">
+          <div class="range-labels"><span>0.5</span><span>2.5</span></div>
+          <p class="help-text">Read the final value (step) or the steady-state amplitude (sine).</p>
+        </div>
+        <div class="control-block" id="m4-tau-block">
+          <div class="control-top"><label for="m4-tau">Time constant <span class="unit">τ</span></label><output id="m4-tau-value" for="m4-tau">2</output></div>
+          <input type="range" id="m4-tau" min="0.1" max="6" step="0.05" value="2">
+          <div class="range-labels"><span>0.1 s</span><span>6.0 s</span></div>
+          <p class="help-text">Try the 63.2% point or the log method.</p>
+        </div>
+        <div class="control-block" id="m4-zeta-block">
+          <div class="control-top"><label for="m4-zeta">Damping ratio <span class="unit">ζ</span></label><output id="m4-zeta-value" for="m4-zeta">0.5</output></div>
+          <input type="range" id="m4-zeta" min="0.05" max="1.5" step="0.01" value="0.5">
+          <div class="range-labels"><span>0.05</span><span>1.50</span></div>
+          <p class="help-text">Overshoot depends only on ζ.</p>
+        </div>
+        <div class="control-block" id="m4-wn-block">
+          <div class="control-top"><label for="m4-wn">Natural frequency <span class="unit">ωn</span></label><output id="m4-wn-value" for="m4-wn">4</output></div>
+          <input type="range" id="m4-wn" min="0.5" max="10" step="0.1" value="4">
+          <div class="range-labels"><span>0.5 rad/s</span><span>10 rad/s</span></div>
+          <p class="help-text">Use the peak time once you know ζ.</p>
+        </div>
+            <button id="m4-submit" class="primary-button" type="button" style="margin-top:22px">Reveal sensor <span aria-hidden="true">→</span></button>
+            <button id="m4-new" class="reset-button" type="button"><span aria-hidden="true">↻</span> New sensor</button>
+          </section>
+          <section class="panel prediction-panel" aria-labelledby="m4-hint-title">
+            <div class="prediction-heading"><span class="sparkle" aria-hidden="true">✦</span><h3 id="m4-hint-title">Need a hint?</h3><span class="mini-label">OPTIONAL</span></div>
+            <button id="m4-hint" type="button" class="reset-button" style="margin-top:14px">Show a hint</button>
+            <p id="m4-hint-text" class="prediction-instruction" role="status" aria-live="polite"></p>
+          </section>
+        </aside>
+        <div class="results-stack">
+          <section class="panel chart-panel" aria-labelledby="m4-chart-title">
+            <div class="chart-heading"><div><p class="chart-eyebrow">NOISY MEASUREMENT</p><h3 id="m4-chart-title">Hidden sensor response</h3></div><span id="m4-round-tag" class="small-tag">Round 1</span></div>
+            <div class="chart-box"><svg id="m4-chart" viewBox="0 0 900 390" style="width:100%;min-height:250px" role="img" aria-label="Noisy response of a hidden sensor"></svg></div>
+            <p class="chart-footnote">Score: within 10% of the true value earns full marks, falling to zero at 50% error.</p>
+          </section>
+          <section class="panel log-panel" id="m4-log-panel" aria-labelledby="m4-log-title" hidden>
+            <div class="chart-heading"><div><p class="chart-eyebrow">LOG METHOD</p><h3 id="m4-log-title">ln(error fraction) of your data</h3></div><span class="small-tag">Uses your K</span></div>
+            <p class="subtle-intro">With your K, the error fraction is 1 − y/K. If K and τ are right, ln of it follows a straight line with slope −1/τ. Points below 5% are hidden because noise dominates there.</p>
+            <div class="chart-box chart-box-small"><svg id="m4-log-chart" viewBox="0 0 900 310" role="img" aria-label="Logarithm of the error fraction of the measured data"></svg></div>
+            <div class="slope-strip"><span>Your line slope −1/τ</span><strong id="m4-slope-value">--</strong></div>
+          </section>
+          <div class="metrics-grid" aria-live="polite">
+            <article class="metric-card"><span class="metric-label">Round score</span><div class="metric-value" id="m4-round-score">--</div><p>average over this sensor’s parameters</p></article>
+            <article class="metric-card"><span class="metric-label">Session average</span><div class="metric-value" id="m4-session-avg">--</div><p id="m4-session-caption">0 points in total</p></article>
+            <article class="metric-card"><span class="metric-label">Rounds played</span><div class="metric-value" id="m4-rounds">0</div><p>since you opened the page</p></article>
+          </div>
+          <section class="panel validation-panel" id="m4-result" hidden>
+            <div class="chart-heading"><div><p class="chart-eyebrow">THE REVEAL</p><h3>True values vs. your guess</h3></div></div>
+            <p id="m4-feedback" class="prediction-feedback" role="status" aria-live="polite" style="margin-top:10px"></p>
+            <div class="table-scroll"><table><thead><tr><th>Parameter</th><th>True</th><th>Your guess</th><th>Error</th><th>Marks</th></tr></thead><tbody id="m4-result-body"></tbody></table></div>
+            <div id="m4-notes" class="subtle-intro"></div>
+          </section>
+        </div>
+      </div>
+    </section>
   </main>
   <footer class="site-footer">Dynamics Lab <span>•</span> Interactive systems, made simple.</footer>
 </body>
