@@ -251,3 +251,31 @@ footer span { padding: 0 6px; }
 #page-module4 input[type="range"]:disabled { opacity: .55; cursor: not-allowed; }
 #page-module4 .reset-button { width: 100%; }
 #page-module4 .prediction-instruction { color: #6e639e; font-size: 12px; }
+/* Homework 2: scoped P1 additions. Existing module styles are unchanged. */
+#page-control [hidden] { display:none !important; }
+#page-control p { line-height:1.65; }
+.p1-presets { display:flex; flex-wrap:wrap; gap:10px; margin:0 0 20px; }
+.p1-presets button { border:1px solid #ded9f5; background:#fff; color:#6353bf; border-radius:10px; padding:11px 15px; font:inherit; cursor:pointer; }
+.p1-presets button:hover { background:#efecff; }
+.p1-loop { padding:22px; margin-bottom:22px; }
+.p1-loop svg { display:block; width:100%; height:auto; margin-top:15px; }
+.p1-field { margin-top:20px; }
+.p1-field label { display:block; color:#596079; font-size:12px; font-weight:650; margin-bottom:8px; }
+.p1-input-pair { display:grid; grid-template-columns:minmax(0,1fr) 80px; gap:12px; align-items:center; }
+.p1-field input[type=number], .p1-field select { min-width:0; width:100%; border:1px solid #ded9ed; border-radius:8px; padding:8px; background:white; color:#39334e; font:inherit; }
+.p1-field input:focus-visible,.p1-field select:focus-visible,.p1-presets button:focus-visible { outline:2px solid #7663dc; outline-offset:3px; }
+.p1-field input:invalid { border-color:#bd5543; }
+.p1-choice { display:block; margin:12px 0; font-size:13px; }
+.p1-choice input { margin-right:8px; }
+.p1-model { padding:12px; background:#f5f2ff; border-radius:8px; font-size:12px; overflow-wrap:anywhere; }
+.p1-metrics { grid-template-columns:repeat(2,minmax(0,1fr)); }
+.p1-legend { display:flex; flex-wrap:wrap; gap:22px; font-size:12px; color:#7563dc; margin-bottom:0; }
+.p1-legend span:nth-child(2) { color:#7d879b; }
+.p1-legend .p1-limit-key { color:#b16f48 !important; }
+#page-control .chart-box svg text { font-size:14px; fill:#71788e; font-family:inherit; }
+#page-control .validation-panel p,#p1-feedback { font-size:13px; color:#656a80; }
+#page-control summary { cursor:pointer; color:#6556be; font-weight:650; margin-top:15px; }
+.p1-validation { margin-top:24px; }
+.p1-fail { color:#b33; font-weight:bold; }
+.home-actions { flex-wrap:wrap; }
+@media(max-width:600px) { .p1-loop { padding:12px; } .p1-presets button { font-size:12px; padding:10px; } #page-control .metric-value { font-size:23px; } }

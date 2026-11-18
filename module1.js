@@ -313,7 +313,7 @@ $('reset-button').addEventListener('click', () => {
 });
 
 // --- 5. Single-page navigation: Home and four individual module tabs ---
-const PAGE_NAMES = ['home', 'module1', 'module2', 'module3', 'module4'];
+const PAGE_NAMES = ['home', 'module1', 'module2', 'module3', 'module4', 'control'];
 const navTabs = [...document.querySelectorAll('[data-page]')];
 
 function navigateTo(name) {

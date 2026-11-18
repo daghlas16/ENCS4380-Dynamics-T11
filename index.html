@@ -11,6 +11,7 @@
   <script src="module2.js" defer></script>
   <script src="module3.js" defer></script>
   <script src="module4.js" defer></script>
+  <script src="p1.js" defer></script>
 </head>
 <body>
   <header class="site-header">
@@ -27,6 +28,7 @@
         <button type="button" id="tab-module2" class="nav-tab" role="tab" aria-controls="page-module2" aria-selected="false" data-page="module2"><span class="nav-number">02</span> Module 2</button>
         <button type="button" id="tab-module3" class="nav-tab" role="tab" aria-controls="page-module3" aria-selected="false" data-page="module3"><span class="nav-number">03</span> Module 3</button>
         <button type="button" id="tab-module4" class="nav-tab" role="tab" aria-controls="page-module4" aria-selected="false" data-page="module4"><span class="nav-number">04</span> Module 4</button>
+      <button type="button" id="tab-control" class="nav-tab" role="tab" aria-controls="page-control" aria-selected="false" data-page="control">Control · P1</button>
       </nav>
       <div class="header-state"><span class="header-dot" aria-hidden="true"></span> Interactive toolkit</div>
     </div>
@@ -41,6 +43,7 @@
           <h1>Watch systems<br /><span>come to life.</span></h1>
           <p class="home-description">Explore how sensors respond, experiment with real parameters, and turn equations into something you can actually see.</p>
           <div class="home-actions">
+            <button type="button" class="home-primary" data-open="control">Explore Control · P1 ↗</button>
             <button type="button" class="home-primary" data-open="module1">Explore Module 01 <span aria-hidden="true">↗</span></button>
             <span class="home-live-note"><span class="live-indicator"></span> Modules 1, 2, 3 and 4 are live</span>
           </div>
@@ -309,6 +312,7 @@
         </div>
       </div>
     </section>
+    <section id="page-control" class="page-view" role="tabpanel" aria-labelledby="tab-control" hidden></section>
   </main>
   <footer class="site-footer">Dynamics Lab <span>•</span> Interactive systems, made simple.</footer>
 </body>
