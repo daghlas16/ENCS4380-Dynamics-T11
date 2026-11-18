@@ -153,3 +153,23 @@ Every member can explain every line of code and every equation in their own modu
 
 - Lecture slides: *Static and Dynamic Characteristics*, ENCS4380.
 - *State-Space Modeling* notes (2026 edition), Example 3 and Sections 6 and 7.1.
+ ## Homework 2 
+ 
+ ## P1 *(Maen Khalil)*
+
+Only P1 is implemented in this update; P2–P4 and My system are separate group work.
+
+- First-order plant from Module 1 (`K/(tau*s+1)`) and the physical mass–spring–damper from Module 3 (`1/(m*s²+b*s+k)`).
+- Editable plant parameters, Kp/Ki/Kd, setpoint step, actuator limits and simulation duration.
+- Negative-feedback block diagram; live output/setpoint and applied-control plots.
+- Rise time (10–90%), overshoot and ±2% settling time relative to the estimated final output; steady-state error relative to the target. Estimates use the last 10% of the window and are withheld when the output has not become steady.
+- Coupled RK4 integration of plant, error integral and derivative-filter states. Numerical step is selected from the plant/controller rates; no server or dependencies.
+- Practical filtered derivative on measurement, Tf = 0.04 s, avoids setpoint derivative kick. Actuator clipping is applied inside integration. Anti-windup is intentionally left for P3.
+- P, PI and PID presets; a working Predict, then check experiment.
+- Five on-page checks cover all three homework validation requirements and the PI time response. Reference checks use K = tau = 1 and unsaturated, stable configurations.
+
+Changed files: `index.html`, `module1.js` (navigation only), `style.css` (P1 additions), `README.md`.
+New file: `p1.js`. Modules 2–4 are unchanged.
+
+The Homework 1 modules continue to use their existing closed-form calculations; P1 uses RK4.
+`window.P1Engine` exposes `simulate(parameters)`, `validations()` and `defaults` for future reuse.
