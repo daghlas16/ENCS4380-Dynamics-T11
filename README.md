@@ -173,3 +173,26 @@ New file: `p1.js`. Modules 2–4 are unchanged.
 
 The Homework 1 modules continue to use their existing closed-form calculations; P1 uses RK4.
 `window.P1Engine` exposes `simulate(parameters)`, `validations()` and `defaults` for future reuse.
+
+
+
+## P2: First-Order Sensor Dynamics in a Feedback Control System (Yamen Daghlas)
+
+First-order sensor model: `τs·ż = y − z`, with the sensor output used as the feedback signal instead of the true plant output.
+
+- First-order plant from Module 1 (`K/(tau*s+1)`) and physical mass–spring–damper plant from Module 3 (`1/(m*s²+b*s+k)`).
+- Adjustable sensor time constant `τs`, plant parameters, PID gains `Kp/Ki/Kd`, setpoint step, actuator limits and simulation duration.
+- Negative-feedback block diagram showing the plant and sensor dynamics in the feedback path.
+- Live plot comparing the true plant output `y`, measured sensor output `z`, and setpoint `r`.
+- Applied-control signal plot with actuator limits.
+- Rise time (10–90%), overshoot and ±2% settling time calculated from the true plant output; steady-state error relative to the target. Metrics use the estimated final output and are withheld when the response has not become steady.
+- Coupled RK4 integration of the plant, sensor, integral error and derivative-filter states. The numerical step accounts for plant, sensor and controller rates.
+- PID controller uses the measured sensor output `z` for feedback. The sensor follows `τs·ż = y − z`, so increasing `τs` makes the measurement respond more slowly.
+- Filtered derivative on measurement, `Tf = 0.04 s`, to avoid setpoint derivative kick. Actuator clipping is applied inside integration. Anti-windup is left for P3.
+- First-order and mass–spring–damper plant options.
+- Predict and Check interaction demonstrating the effect of sensor time constant on measurement lag.
+- Four validation checks cover the sensor step response, fast-sensor behavior, measurement lag and PI steady-state tracking.
+
+Changed files: `index.html` (P2 script and navigation integration), `README.md`. New file: `p2.js`. P1 remains unchanged.
+
+The Homework 1 modules continue to use their existing closed-form calculations. P2 uses RK4 to simulate the plant and sensor dynamics together. `window.P2Engine` exposes `simulate(parameters)`, `validations()`, `defaults` and `mount()` for future reuse.
