@@ -157,7 +157,8 @@ Every member can explain every line of code and every equation in their own modu
  
  ## P1 *(Maen Khalil)*
 
-Only P1 is implemented in this update; P2–P4 and My system are separate group work.
+P1, P2 and P3 are implemented.
+P4 and My system are separate group work.
 
 - First-order plant from Module 1 (`K/(tau*s+1)`) and the physical mass–spring–damper from Module 3 (`1/(m*s²+b*s+k)`).
 - Editable plant parameters, Kp/Ki/Kd, setpoint step, actuator limits and simulation duration.
@@ -196,3 +197,30 @@ First-order sensor model: `τs·ż = y − z`, with the sensor output used as th
 Changed files: `index.html` (P2 script and navigation integration), `README.md`. New file: `p2.js`. P1 remains unchanged.
 
 The Homework 1 modules continue to use their existing closed-form calculations. P2 uses RK4 to simulate the plant and sensor dynamics together. `window.P2Engine` exposes `simulate(parameters)`, `validations()`, `defaults` and `mount()` for future reuse.
+
+## P3: Digital PID Controller (Malek Zeghari)
+
+Digital PID implementation using discrete-time proportional, integral, and derivative calculations, with adjustable sampling time and optional anti-windup.
+
+- First-order plant reused from Module 1 (K/(τs+1)).
+- Adjustable sampling time Ts, PID gains Kp/Ki/Kd, plant gain K, and time constant τ.
+- Numerical simulation of the first-order plant using Euler integration.
+- Live system response plot comparing the selected sampling time with a fast-sampling reference (Ts = 0.01 s).
+- Stair-step control signal showing the zero-order hold between sampling instants.
+- Actuator saturation limits mapped to 0–100% PWM.
+- Optional anti-windup using conditional integration to prevent excessive integral accumulation during saturation.
+- Live comparison of the integral contribution with and without anti-windup.
+- Rise time, overshoot, settling time, and estimated steady-state error.
+- Fast sampling, slow sampling, windup example, and reset presets.
+- Automatically generated Arduino PID code based on the current controller settings, with a copy button.
+- Predict and Check interaction demonstrating the effect of increasing sampling time.
+- Five validation checks covering P-only response, PI reference parameters, steady-state tracking, and anti-windup.
+- Responsive interface for desktop and mobile devices.
+
+Changed files: index.html (P3 script integration), README.md. New file: p3.js. Existing modules remain unchanged.
+
+P3 uses discrete-time PID calculations combined with Euler integration of the plant. `window.P3Engine` exposes `simulatePID()`, `pidStep()`, `validations()`, `generateArduinoCode()` and `defaults` for future reuse.
+
+The current plant parameters are reference values. The generated Arduino code is an educational example that requires sensor calibration and adaptation to the actual project hardware.
+
+**AI usage:** ChatGPT was used to assist with code development, debugging, numerical simulation, interface design, and documentation.
