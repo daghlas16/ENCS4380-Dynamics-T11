@@ -223,4 +223,3 @@ P3 uses discrete-time PID calculations combined with Euler integration of the pl
 
 The current plant parameters are reference values. The generated Arduino code is an educational example that requires sensor calibration and adaptation to the actual project hardware.
 
-**AI usage:** ChatGPT was used to assist with code development, debugging, numerical simulation, interface design, and documentation.
