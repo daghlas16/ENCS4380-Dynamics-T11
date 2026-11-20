@@ -223,3 +223,15 @@ P3 uses discrete-time PID calculations combined with Euler integration of the pl
 
 The current plant parameters are reference values. The generated Arduino code is an educational example that requires sensor calibration and adaptation to the actual project hardware.
 
+
+## P4: PID Tuning Challenge (Ahmad Abu Farha)
+
+Tune a PID controller for a hidden plant to meet overshoot, settling-time and steady-state error targets.
+
+- Random first-order or second-order plant based on the Homework 1 models. The plant stays fixed while the gains are adjusted.
+- Adjustable Kp, Ki and Kd with live output, setpoint and actuator-limited control signal plots using P1’s RK4 simulation.
+- Rise time, percentage overshoot, ±2% settling time and absolute steady-state error.
+- PASS/FAIL for each specification: overshoot ≤ 10% (30 points), settling by the challenge deadline (40 points) and steady-state error ≤ 0.1% of the setpoint (30 points).
+- New Challenge, Reset PID Gains and Evaluate Controller actions.
+- Predict and Check interaction comparing steady-state error when Ki changes from 0 to 1 on the same plant.
+
